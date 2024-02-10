@@ -4,7 +4,7 @@ import BoardController from "./controllers/boards/boardsController";
 const router = Router();
 
 router.get('/boards'); // Obter todos os quadros.
-router.get('/boards/:id'); // Obter detalhes de um quadro específico.
+router.get('/boards/:id', BoardController.getBoard); // Obter detalhes de um quadro específico.
 router.post('/boards', BoardController.createBoard); // Criar um novo quadro.
 router.put('/boards/:id'); // Atualizar informações de um quadro existente.
 router.delete('/boards/:id'); // Excluir um quadro.
