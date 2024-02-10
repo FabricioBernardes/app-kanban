@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import CreateBoardUseCase from './createBoardUseCase/createBoardUseCase';
 import GetBoardUseCase from './getBoardUseCase/getBoardUseCase';
 import GetAllBoardUseCase from './getAllBoardsUseCase/getAllBoardsUseCase';
+import UpdateBoardUseCase from './updateBoardUseCase/updateBoardUseCase';
 
 const BoardController = {
 
@@ -38,7 +39,15 @@ const BoardController = {
     },
 
     async updateBoard(req: Request, res: Response) {
-        return res.status(200).json({ message: 'Board updated successfully' });
+        const { id } = req.params;
+        const { title } = req.body;
+        const updateBoard = await UpdateBoardUseCase(id, title);
+
+        if (updateBoard) {
+            return res.status(200).json({ message: 'Board updated successfully' });
+        }
+
+        return res.status(400).json({ message: 'Error updating board' });
     },
 
     async deleteBoard(req: Request, res: Response) {

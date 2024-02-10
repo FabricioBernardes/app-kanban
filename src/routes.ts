@@ -6,7 +6,7 @@ const router = Router();
 router.get('/boards', BoardController.getAllBoards);
 router.get('/boards/:id', BoardController.getBoard);
 router.post('/boards', BoardController.createBoard);
-router.put('/boards/:id'); // Atualizar informações de um quadro existente.
+router.put('/boards/:id', BoardController.updateBoard);
 router.delete('/boards/:id'); // Excluir um quadro.
 
 router.get('/boards/:boardId/lists'); // Obter todas as listas em um quadro.
