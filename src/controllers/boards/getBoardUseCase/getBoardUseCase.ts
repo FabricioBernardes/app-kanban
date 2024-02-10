@@ -18,7 +18,6 @@ async function GetBoardUseCase(id: string){
         
         return user;
     } catch (error) {
-        console.error(`Error in GetBoardUseCase: ${Error}`);
         throw error;
     }
 }
