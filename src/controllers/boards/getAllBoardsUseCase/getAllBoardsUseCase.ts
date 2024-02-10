@@ -3,17 +3,17 @@ import { prisma } from "../../../services/prisma/client";
 async function GetAllBoardUseCase(){
 
     try {
-        const board = await prisma.board.findMany({
+        const boards = await prisma.board.findMany({
             select: {
                 title: true,
             }
         });
 
-        if (!board) {
+        if (boards.length === 0) {
             throw new Error(`No boards found`);
         }
         
-        return board;
+        return boards;
     } catch (error) {
         throw error;
     }
