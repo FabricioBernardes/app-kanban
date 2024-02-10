@@ -3,6 +3,7 @@ import CreateBoardUseCase from './createBoardUseCase/createBoardUseCase';
 import GetBoardUseCase from './getBoardUseCase/getBoardUseCase';
 import GetAllBoardUseCase from './getAllBoardsUseCase/getAllBoardsUseCase';
 import UpdateBoardUseCase from './updateBoardUseCase/updateBoardUseCase';
+import DeleteBoardUseCase from './deleteBoardUseCase/deleteBoardUseCase';
 
 const BoardController = {
 
@@ -59,7 +60,15 @@ const BoardController = {
     },
 
     async deleteBoard(req: Request, res: Response) {
-        return res.status(200).json({ message: 'Board deleted successfully' });
+        const { id } = req.params;
+        const deleteBoard = await DeleteBoardUseCase(id);
+
+        if (deleteBoard) {
+            return res.status(200).json({ message: 'Board deleted successfully' });
+        }
+
+        return res.status(400).json({ message: 'Error deleting board' });
+
     },
 }
 
