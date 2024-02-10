@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import CreateBoardUseCase from './createBoardUseCase/createBoardUseCase';
 import GetBoardUseCase from './getBoardUseCase/getBoardUseCase';
+import GetAllBoardUseCase from './getAllBoardsUseCase/getAllBoardsUseCase';
 
 const BoardController = {
 
@@ -16,7 +17,13 @@ const BoardController = {
     },
 
     async getAllBoards(req: Request, res: Response) {
-        return res.status(200).json({ message: 'All boards retrieved successfully' });
+        const boards = await GetAllBoardUseCase();
+
+        if (boards) {
+            return res.status(200).json(boards);
+        }
+
+        return res.status(400).json({ message: 'Error retrieving boards' });
     },
 
     async createBoard(req: Request, res: Response) {
