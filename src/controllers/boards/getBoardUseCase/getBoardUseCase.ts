@@ -3,7 +3,7 @@ import { prisma } from "../../../services/prisma/client";
 async function GetBoardUseCase(id: string){
 
     try {
-        const user = await prisma.board.findUnique({
+        const board = await prisma.board.findUnique({
             where: {
                 id: id,
             },
@@ -12,11 +12,11 @@ async function GetBoardUseCase(id: string){
             }
         });
         
-        if (!user) {
+        if (!board) {
             throw new Error(`Board with title '${id}' not found`);
         }
         
-        return user;
+        return board;
     } catch (error) {
         throw error;
     }
