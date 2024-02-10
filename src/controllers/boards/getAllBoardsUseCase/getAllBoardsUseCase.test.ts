@@ -23,15 +23,19 @@ describe('GetAllBoardUseCase', () => {
         expect(result).toBe(boards);
     });
 
-    it('should throw an error if no boards are found', async () => {
+    it('should return "No boards found" if no boards exist', async () => {
         (prisma.board.findMany as jest.Mock).mockResolvedValueOnce([]);
 
-        await expect(GetAllBoardUseCase()).rejects.toThrow(`No boards found`);
+        const result = await GetAllBoardUseCase();
+
+        expect(result).toEqual('No boards found');
     });
 
-    it('should throw an error if an error occurs', async () => {
-        (prisma.board.findMany as jest.Mock).mockRejectedValueOnce(new Error('Simulated error'));
+    it('should return false if an error occurs', async () => {
+        (prisma.board.findMany as jest.Mock).mockRejectedValueOnce(new Error());
 
-        await expect(GetAllBoardUseCase()).rejects.toThrow(`Simulated error`);
+        const result = await GetAllBoardUseCase();
+
+        expect(result).toEqual(false);
     });
 });

@@ -24,6 +24,10 @@ const BoardController = {
     async getAllBoards(req: Request, res: Response) {
         const boards = await GetAllBoardUseCase();
 
+        if (boards === 'No boards found') {
+            return res.status(404).json({ message: 'No boards found' });
+        }
+
         if (boards) {
             return res.status(200).json(boards);
         }

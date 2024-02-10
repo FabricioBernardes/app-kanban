@@ -10,12 +10,12 @@ async function GetAllBoardUseCase(){
         });
 
         if (boards.length === 0) {
-            throw new Error(`No boards found`);
+            return "No boards found"
         }
         
         return boards;
     } catch (error) {
-        throw error;
+        return false;
     }
 }
 
