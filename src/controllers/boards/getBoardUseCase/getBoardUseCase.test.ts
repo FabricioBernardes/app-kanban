@@ -20,19 +20,23 @@ describe('GetBoardUseCase', () => {
         expect(result).toEqual({ title: 'Test Board' });
     });
 
-    it('should throw an error if the board is not found', async () => {
+    it('should return "Board not found" if the board does not exist', async () => {
         const id = '1';
 
         (prisma.board.findUnique as jest.Mock).mockResolvedValueOnce(null);
 
-        await expect(GetBoardUseCase(id)).rejects.toThrow(`Board with title '${id}' not found`);
+        const result = await GetBoardUseCase(id);
+
+        expect(result).toEqual('Board not found');
     });
 
-    it('should throw an error if an error occurs', async () => {
+    it('should return false if an error occurs', async () => {
         const id = '1';
 
-        (prisma.board.findUnique as jest.Mock).mockRejectedValueOnce(new Error('Simulated error'));
+        (prisma.board.findUnique as jest.Mock).mockRejectedValueOnce(new Error());
 
-        await expect(GetBoardUseCase(id)).rejects.toThrow('Simulated error');
+        const result = await GetBoardUseCase(id);
+
+        expect(result).toEqual(false);
     });
 });

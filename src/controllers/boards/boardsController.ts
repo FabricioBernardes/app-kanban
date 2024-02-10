@@ -10,6 +10,10 @@ const BoardController = {
         const { id } = req.params;
         const board = await GetBoardUseCase(id);
 
+        if (board === 'Board not found') {
+            return res.status(404).json({ message: 'Board not found' });
+        }
+
         if (board) {
             return res.status(200).json(board);
         }

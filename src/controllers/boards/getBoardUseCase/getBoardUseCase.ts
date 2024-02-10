@@ -13,12 +13,12 @@ async function GetBoardUseCase(id: string){
         });
         
         if (!board) {
-            throw new Error(`Board with title '${id}' not found`);
+            return "Board not found";
         }
         
         return board;
     } catch (error) {
-        throw error;
+        return false;
     }
 }
 
