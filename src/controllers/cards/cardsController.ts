@@ -3,6 +3,7 @@ import CreateCardUseCase from './createCardUseCase/createCardUseCase';
 import GetCardsByListUseCase from './getCardsByList/getCardsByListUseCase';
 import GetCardUseCase from './getCardUseCase/getCardUseCase';
 import UpdateCardUseCase from './updateCardUseCase/updateCardUseCase';
+import DeleteCardUseCase from './deleteCardUseCase/deleteCardUseCase';
 
 const CardsController = {
 
@@ -66,6 +67,17 @@ const CardsController = {
     },
 
     async deleteCard(req: Request, res: Response) {
+        const { id } = req.params;
+
+        console.log(id);
+
+        const card = await DeleteCardUseCase(id);
+
+        if (card) {
+            return res.status(200).json({ message: 'Card deleted' });
+        }
+
+        return res.status(400).json({ message: 'Error to delete card' });
 
     },
 }

@@ -20,8 +20,8 @@ router.delete('/lists/:id', ListsController.deleteList);
 router.get('/lists/:listId/cards', CardsController.getCardsByList);
 router.get('/cards/:id', CardsController.getCard);
 router.post('/lists/:listId/cards', CardsController.createCard);
-router.put('/cards/:id', CardsController.updateCard); // Atualizar informações de um cartão existente.
-router.delete('/cards/:id'); // Excluir um cartão.
+router.put('/cards/:id', CardsController.updateCard);
+router.delete('/cards/:id', CardsController.deleteCard);
 
 router.get('/cards/:cardId/comments'); // Obter todos os comentários em um cartão.
 router.post('/cards/:cardId/comments'); // Adicionar um novo comentário a um cartão.
