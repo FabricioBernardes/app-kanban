@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import CreateCommentUseCase from './createCommentUseCase/createCommentUseCase';
 import GetLCommentsByCardUseCase from './getCommentsByCardUseCase/getCommentsByCardUseCase';
+import UpdateCommentUseCase from './updateCommentUseCase/updateCommentUseCase';
 
 const CommentsController = {
     async getCommentByCard(req: Request, res: Response) {
@@ -33,7 +34,15 @@ const CommentsController = {
     },
 
     async updateComment(req: Request, res: Response) {
+        const { id } = req.params;
+        const { content } = req.body;
+        const comment = await UpdateCommentUseCase(id, content);
 
+        if (comment) {
+            return res.status(200).json(comment);
+        }
+
+        return res.status(400).json({ message: 'Error to update comment' });
     },
 
     async deleteComment(req: Request, res: Response) {

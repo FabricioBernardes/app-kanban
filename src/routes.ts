@@ -26,7 +26,7 @@ router.delete('/cards/:id', CardsController.deleteCard);
 
 router.get('/cards/:cardId/comments', CommentsController.getCommentByCard);
 router.post('/cards/:cardId/comments', CommentsController.createComment);
-router.put('/comments/:id'); // Atualizar um comentário existente.
+router.put('/comments/:id', CommentsController.updateComment);
 router.delete('/comments/:id'); // Excluir um comentário.
 
 
