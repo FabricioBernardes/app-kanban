@@ -1,5 +1,6 @@
 import { Router } from "express";
 import BoardController from "./controllers/boards/boardsController";
+import ListsController from "./controllers/lists/listsController";
 
 const router = Router();
 
@@ -9,9 +10,9 @@ router.post('/boards', BoardController.createBoard);
 router.put('/boards/:id', BoardController.updateBoard);
 router.delete('/boards/:id', BoardController.deleteBoard);
 
-router.get('/boards/:boardId/lists'); // Obter todas as listas em um quadro.
+router.get('/boards/:boardId/lists', ); // Obter todas as listas em um quadro.
 router.get('/lists/:id'); // Obter detalhes de uma lista específica.
-router.post('/boards/:boardId/lists'); // Criar uma nova lista em um quadro.
+router.post('/boards/:boardId/lists', ListsController.createList); // Criar uma nova lista em um quadro.
 router.put('/lists/:id'); // Atualizar informações de uma lista existente.
 router.delete('/lists/:id'); // Excluir uma lista.
 
