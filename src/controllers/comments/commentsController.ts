@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import CreateCommentUseCase from './createCommentUseCase/createCommentUseCase';
 import GetLCommentsByCardUseCase from './getCommentsByCardUseCase/getCommentsByCardUseCase';
 import UpdateCommentUseCase from './updateCommentUseCase/updateCommentUseCase';
+import DeleteCommentUseCase from './deleteCommentUseCase/deleteCommentUseCase';
 
 const CommentsController = {
     async getCommentByCard(req: Request, res: Response) {
@@ -46,6 +47,14 @@ const CommentsController = {
     },
 
     async deleteComment(req: Request, res: Response) {
+        const { id } = req.params;
+        const comment = await DeleteCommentUseCase(id);
+
+        if (comment) {
+            return res.status(200).json({ message: 'Comment deleted' });
+        }
+
+        return res.status(400).json({ message: 'Error to delete comment' });
 
     },
 }
