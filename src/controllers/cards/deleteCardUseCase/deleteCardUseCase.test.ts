@@ -4,7 +4,7 @@ import { prisma } from "../../../services/prisma/client";
 jest.mock("../../../services/prisma/client",() => {
     return {
         prisma: {
-            list: {
+            card: {
                 delete: jest.fn()
             }
         }
@@ -13,7 +13,7 @@ jest.mock("../../../services/prisma/client",() => {
 
 describe("DeleteCardUseCase", () => {
     it("should delete a card", async () => {
-        (prisma.list.delete as jest.Mock).mockResolvedValue({});
+        (prisma.card.delete as jest.Mock).mockResolvedValue(true);
 
         const card = await DeleteCardUseCase("1");
 
@@ -21,7 +21,7 @@ describe("DeleteCardUseCase", () => {
     });
 
     it("should return false if card not found", async () => {
-        (prisma.list.delete as jest.Mock).mockRejectedValue({});
+        (prisma.card.delete as jest.Mock).mockRejectedValue(false);
 
         const card = await DeleteCardUseCase("1");
 

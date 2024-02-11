@@ -9,9 +9,8 @@ async function DeleteCardUseCase(id: string) {
             },
         })
 
-        return true
+        return true;
     } catch (error) {
-        console.log(error)
         return false
     }
 }
