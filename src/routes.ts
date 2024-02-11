@@ -10,7 +10,7 @@ router.post('/boards', BoardController.createBoard);
 router.put('/boards/:id', BoardController.updateBoard);
 router.delete('/boards/:id', BoardController.deleteBoard);
 
-router.get('/boards/:boardId/lists', ); // Obter todas as listas em um quadro.
+router.get('/boards/:boardId/lists', ListsController.getListsByCard); // Obter todas as listas em um quadro.
 router.get('/lists/:id', ListsController.getList); // Obter detalhes de uma lista específica.
 router.post('/boards/:boardId/lists', ListsController.createList); // Criar uma nova lista em um quadro.
 router.put('/lists/:id'); // Atualizar informações de uma lista existente.

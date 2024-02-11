@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import CreateListUseCase from './createListUseCase/createListUseCase';
 import GetListUseCase from './getListUseCase/getListUseCase';
 import DeleteListUseCase from './deleteListUseCase/deleteListUseCase';
+import GetListsByBoardUseCase from "./getListsByCard/getListsByBoardUseCase"
 
 const ListsController = {
 
@@ -21,12 +22,25 @@ const ListsController = {
         return res.status(400).json({ message: 'Error to get list' });
     },
 
-    async getListsByCardLists(req: Request, res: Response) {
+    async getListsByCard(req: Request, res: Response) {
+        const { boardId } = req.params;
 
+        const lists = await GetListsByBoardUseCase(boardId);
+
+        if (lists === 'Lists not found') {
+            return res.status(404).json({ message: 'Lists not found' });
+        }
+
+        if (lists) {
+            return res.status(200).json(lists);
+        }
+
+        return res.status(400).json({ message: 'Error to get lists' });
     },
 
     async createList(req: Request, res: Response) {
-        const { title, boardId } = req.body;
+        const { title } = req.body;
+        const { boardId } = req.params;
 
         const list = await CreateListUseCase(title, boardId);
 
@@ -48,7 +62,7 @@ const ListsController = {
         if (list) {
             return res.status(204).json("List deleted successfully");
         }
-        
+
         return res.status(400).json({ message: 'Error to delete list' });
     },
 }
