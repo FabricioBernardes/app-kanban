@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import CreateListUseCase from './createListUseCase/createListUseCase';
 import GetListUseCase from './getListUseCase/getListUseCase';
 import DeleteListUseCase from './deleteListUseCase/deleteListUseCase';
-import GetListsByBoardUseCase from "./getListsByCard/getListsByBoardUseCase";
+import GetListsByBoardUseCase from "./getListsByBoard/getListsByBoardUseCase";
 import UpdateListUseCase from './updateListUseCase/updateListUseCase';
 
 const ListsController = {

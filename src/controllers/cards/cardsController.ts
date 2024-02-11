@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import CreateCardUseCase from './createCardUseCase/createCardUseCase';
-
+import GetCardsByListUseCase from './getCardsByList/getCardsByListUseCase';
 
 const CardsController = {
 
@@ -8,8 +8,20 @@ const CardsController = {
 
     },
 
-    async getCardsByCard(req: Request, res: Response) {
+    async getCardsByList(req: Request, res: Response) {
+        const { listId } = req.params;
 
+        const cards = await GetCardsByListUseCase(listId);
+
+        if (cards === 'Cards not found') {
+            return res.status(404).json({ message: 'Cards not found' });
+        }
+
+        if (cards) {
+            return res.status(200).json(cards);
+        }
+
+        return res.status(400).json({ message: 'Error to get lists' });
     },
 
     async createCard(req: Request, res: Response) {

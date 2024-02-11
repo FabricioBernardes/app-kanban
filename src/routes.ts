@@ -17,7 +17,7 @@ router.post('/boards/:boardId/lists', ListsController.createList);
 router.put('/lists/:id', ListsController.updateList);
 router.delete('/lists/:id', ListsController.deleteList);
 
-router.get('/lists/:listId/cards'); // Obter todos os cartões em uma lista.
+router.get('/lists/:listId/cards', CardsController.getCardsByList); // Obter todos os cartões em uma lista.
 router.get('/cards/:id'); // Obter detalhes de um cartão específico.
 router.post('/lists/:listId/cards', CardsController.createCard); // Criar um novo cartão em uma lista.
 router.put('/cards/:id'); // Atualizar informações de um cartão existente.
