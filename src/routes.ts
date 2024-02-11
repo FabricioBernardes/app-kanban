@@ -1,6 +1,7 @@
 import { Router } from "express";
 import BoardController from "./controllers/boards/boardsController";
 import ListsController from "./controllers/lists/listsController";
+import CardsController from "./controllers/cards/cardsController";
 
 const router = Router();
 
@@ -10,15 +11,15 @@ router.post('/boards', BoardController.createBoard);
 router.put('/boards/:id', BoardController.updateBoard);
 router.delete('/boards/:id', BoardController.deleteBoard);
 
-router.get('/boards/:boardId/lists', ListsController.getListsByCard); // Obter todas as listas em um quadro.
-router.get('/lists/:id', ListsController.getList); // Obter detalhes de uma lista específica.
-router.post('/boards/:boardId/lists', ListsController.createList); // Criar uma nova lista em um quadro.
-router.put('/lists/:id', ListsController.updateList); // Atualizar informações de uma lista existente.
-router.delete('/lists/:id', ListsController.deleteList); // Excluir uma lista.
+router.get('/boards/:boardId/lists', ListsController.getListsByCard);
+router.get('/lists/:id', ListsController.getList);
+router.post('/boards/:boardId/lists', ListsController.createList);
+router.put('/lists/:id', ListsController.updateList);
+router.delete('/lists/:id', ListsController.deleteList);
 
 router.get('/lists/:listId/cards'); // Obter todos os cartões em uma lista.
 router.get('/cards/:id'); // Obter detalhes de um cartão específico.
-router.post('/lists/:listId/cards'); // Criar um novo cartão em uma lista.
+router.post('/lists/:listId/cards', CardsController.createCard); // Criar um novo cartão em uma lista.
 router.put('/cards/:id'); // Atualizar informações de um cartão existente.
 router.delete('/cards/:id'); // Excluir um cartão.
 
