@@ -24,7 +24,7 @@ router.post('/lists/:listId/cards', CardsController.createCard);
 router.put('/cards/:id', CardsController.updateCard);
 router.delete('/cards/:id', CardsController.deleteCard);
 
-router.get('/cards/:cardId/comments'); // Obter todos os comentários em um cartão.
+router.get('/cards/:cardId/comments', CommentsController.getCommentByCard);
 router.post('/cards/:cardId/comments', CommentsController.createComment);
 router.put('/comments/:id'); // Atualizar um comentário existente.
 router.delete('/comments/:id'); // Excluir um comentário.
