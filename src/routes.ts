@@ -2,6 +2,7 @@ import { Router } from "express";
 import BoardController from "./controllers/boards/boardsController";
 import ListsController from "./controllers/lists/listsController";
 import CardsController from "./controllers/cards/cardsController";
+import CommentsController from "./controllers/comments/commentsController";
 
 const router = Router();
 
@@ -24,7 +25,7 @@ router.put('/cards/:id', CardsController.updateCard);
 router.delete('/cards/:id', CardsController.deleteCard);
 
 router.get('/cards/:cardId/comments'); // Obter todos os comentários em um cartão.
-router.post('/cards/:cardId/comments'); // Adicionar um novo comentário a um cartão.
+router.post('/cards/:cardId/comments', CommentsController.createComment);
 router.put('/comments/:id'); // Atualizar um comentário existente.
 router.delete('/comments/:id'); // Excluir um comentário.
 
