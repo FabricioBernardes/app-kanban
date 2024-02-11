@@ -13,7 +13,7 @@ router.delete('/boards/:id', BoardController.deleteBoard);
 router.get('/boards/:boardId/lists', ListsController.getListsByCard); // Obter todas as listas em um quadro.
 router.get('/lists/:id', ListsController.getList); // Obter detalhes de uma lista específica.
 router.post('/boards/:boardId/lists', ListsController.createList); // Criar uma nova lista em um quadro.
-router.put('/lists/:id'); // Atualizar informações de uma lista existente.
+router.put('/lists/:id', ListsController.updateList); // Atualizar informações de uma lista existente.
 router.delete('/lists/:id', ListsController.deleteList); // Excluir uma lista.
 
 router.get('/lists/:listId/cards'); // Obter todos os cartões em uma lista.

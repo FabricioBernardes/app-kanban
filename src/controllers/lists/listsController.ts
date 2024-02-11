@@ -2,7 +2,8 @@ import { Request, Response } from 'express';
 import CreateListUseCase from './createListUseCase/createListUseCase';
 import GetListUseCase from './getListUseCase/getListUseCase';
 import DeleteListUseCase from './deleteListUseCase/deleteListUseCase';
-import GetListsByBoardUseCase from "./getListsByCard/getListsByBoardUseCase"
+import GetListsByBoardUseCase from "./getListsByCard/getListsByBoardUseCase";
+import UpdateListUseCase from './updateListUseCase/updateListUseCase';
 
 const ListsController = {
 
@@ -52,7 +53,15 @@ const ListsController = {
     },
 
     async updateList(req: Request, res: Response) {
+        const { id } = req.params;
+        const { title } = req.body;
+        const list = await UpdateListUseCase(id, title);
 
+        if (list) {
+            return res.status(200).json(list);
+        }
+
+        return res.status(400).json({ message: 'Error to update list' });
     },
 
     async deleteList(req: Request, res: Response) {
