@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import CreateListUseCase from './createListUseCase/createListUseCase';
 import GetListUseCase from './getListUseCase/getListUseCase';
+import DeleteListUseCase from './deleteListUseCase/deleteListUseCase';
 
 const ListsController = {
 
@@ -41,7 +42,14 @@ const ListsController = {
     },
 
     async deleteList(req: Request, res: Response) {
+        const { id } = req.params;
+        const list = await DeleteListUseCase(id);
 
+        if (list) {
+            return res.status(204).json("List deleted successfully");
+        }
+        
+        return res.status(400).json({ message: 'Error to delete list' });
     },
 }
 
