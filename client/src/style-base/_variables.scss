@@ -1,0 +1,49 @@
+//// CSS VARIABLES ////
+
+:root {
+  //// TYPOGRAPHY ////
+
+  --font-family-base: "Roboto", sans-serif;
+  --font-color-base: #16161D;
+  --font-weight-base: 400;
+
+  --font-family-title: "Roboto", sans-serif;
+  --font-color-title: #16161D;
+  --font-size-title: 3.8rem;
+  --font-weight-title: 900;
+
+  --font-size-subtitle: 1.8rem;
+  --font-weight-subtitle: 600;
+
+  --font-size-button: 1.4rem;
+  --font-weight-button: 600;
+
+  --line-height: 1.5;
+
+  --font-size-small: 1.4rem;
+  --font-size-base: 1.6rem;
+  --font-size-big: 1.8rem;
+
+  //// COLORS ////
+  --white: #fff;
+  --black: #16161D;
+  --red: #d9534f;
+  --blue: #5bc0de;
+
+  --gray-1: #efefef;
+  --gray-2: #d9d9d9;
+  --gray-3: #828080;
+  --gray-4: #363636;
+
+  --background-color: #22272b;
+  
+  --shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+
+  --color-btn: #607d8b;
+  --color-btn-hover: #455a64;
+
+  //////////////////////////////////////////////////////////////////
+  //// TRANSITIONS
+  //////////////////////////////////////////////////////////////////
+  --transition: all 0.4s ease;
+}

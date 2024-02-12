@@ -1,0 +1,123 @@
+html {
+  color: var(--font-color-base);
+  font-size: 62.5%; // 1rem = 10px
+  line-height: var(--line-height);
+  background-color: var(--background-color);
+
+  @include media("lg") {
+    font-size: 75%; // 1rem = 12px
+  }
+}
+
+body {
+  font-size: var(--font-size-base) !important;
+  font-family: var(--font-family-base) !important;
+  font-weight: var(--font-weight-base) !important;
+
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 50vh;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+a,
+button,
+input:not([type="checkbox"]) {
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+label{
+  font-weight: 500;
+  margin-bottom: .5rem;
+  display: block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Section and Containers Formatter */
+.section {
+  margin-bottom: 6rem;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+}
+
+/* Images e Videos Config */
+.skeleton {
+  @extend %skeleton;
+}
+
+/* Vanilla Lazy Load */
+.lazy {
+  opacity: 0;
+  transition: var(--transition);
+
+  &.loaded {
+    opacity: 1;
+
+    & + .skeleton {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+select{
+  padding: .5rem;
+}
+
+.icon{
+  width: 2rem;
+  height: 2rem;
+
+  &:hover{
+    scale: 1.1;
+    transition: .3s;
+  }
+}
+
+.input,
+.text-area {
+  @extend %input;
+}
+
+.button-default {
+  @extend %button-default;
+}
+
+.button-white {
+  @extend %button-white;
+}
+
+*{
+  scrollbar-width: auto;
+  scrollbar-color: var(--gray-4) var(--white);
+}
+
+*::-webkit-scrollbar {
+  width: .6rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--gray-2);
+  border-radius: 0;
+}
