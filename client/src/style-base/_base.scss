@@ -103,21 +103,3 @@ select{
 .button-white {
   @extend %button-white;
 }
-
-*{
-  scrollbar-width: auto;
-  scrollbar-color: var(--gray-4) var(--white);
-}
-
-*::-webkit-scrollbar {
-  width: .6rem;
-}
-
-*::-webkit-scrollbar-track {
-  background: var(--white);
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--gray-2);
-  border-radius: 0;
-}

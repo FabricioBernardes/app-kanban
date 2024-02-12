@@ -16,9 +16,11 @@ function App() {
 
         <Sidebar />
 
-        <BrowserRouter>
-          <Main_routes />
-        </BrowserRouter>
+        <article className="main-content">
+          <BrowserRouter>
+            <Main_routes />
+          </BrowserRouter>
+        </article>
 
       </div>
 

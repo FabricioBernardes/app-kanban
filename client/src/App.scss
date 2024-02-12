@@ -1,6 +1,13 @@
 .app-wrapper{
+    height: 100vh;
 
     .content-wrapper{
         display: flex;
+        height: calc(100% - 7rem);
+
+        .main-content{
+            width: 80%;
+            padding: 2rem;
+        }
     }
 }
