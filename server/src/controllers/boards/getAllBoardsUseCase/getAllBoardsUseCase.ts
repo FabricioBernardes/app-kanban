@@ -5,6 +5,7 @@ async function GetAllBoardUseCase(){
     try {
         const boards = await prisma.board.findMany({
             select: {
+                id: true,
                 title: true,
             }
         });

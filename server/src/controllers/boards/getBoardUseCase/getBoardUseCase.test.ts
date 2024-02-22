@@ -13,11 +13,11 @@ describe('GetBoardUseCase', () => {
     it('should return the board with the given id', async () => {
         const id = '1';
 
-        (prisma.board.findUnique as jest.Mock).mockResolvedValueOnce({ title: 'Test Board' });
+        (prisma.board.findUnique as jest.Mock).mockResolvedValueOnce({id: 1, title: 'Test Board' });
 
         const result = await GetBoardUseCase(id);
 
-        expect(result).toEqual({ title: 'Test Board' });
+        expect(result).toEqual({id: 1, title: 'Test Board' });
     });
 
     it('should return "Board not found" if the board does not exist', async () => {

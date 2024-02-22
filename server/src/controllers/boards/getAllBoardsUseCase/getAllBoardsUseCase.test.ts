@@ -12,8 +12,14 @@ jest.mock("../../../services/prisma/client", () =>({
 describe('GetAllBoardUseCase', () => {
     it('should return all boards', async () => {
         const boards = [
-            { title: 'Test Board 1' },
-            { title: 'Test Board 2' },
+            {
+                id: 1,
+                title: 'Test Board 1'
+            },
+            {
+                id: 2,
+                title: 'Test Board 2'
+            },
         ];
 
         (prisma.board.findMany as jest.Mock).mockResolvedValueOnce(boards);

@@ -8,6 +8,7 @@ async function GetBoardUseCase(id: string){
                 id: id,
             },
             select: {
+                id: true,
                 title: true,
             }
         });
