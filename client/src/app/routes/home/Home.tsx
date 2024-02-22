@@ -9,7 +9,6 @@ interface Board {
     title: string
 }
 
-
 const Home = () => {
     const [boards, setBoards] = useState([])
 
@@ -25,14 +24,12 @@ const Home = () => {
         <div className="home-wrapper">
             <div className="all-boards-container">
                 <ul>
-                    {boards.map((board: Board) => {
-                        return (
-                            <li key={board.id}>
-                                <Board title={board.title} id={board.id} />
-                            </li>
-                        )
-                    })}
-                    <NewBoard />
+                    {boards.map((board: Board) => (
+                        <li key={board.id} >
+                            <Board title={board.title} id={board.id} />
+                        </li>
+                    ))}
+                    <NewBoard key="new-board" />
                 </ul>
             </div>
         </div>
