@@ -10,6 +10,19 @@ async function GetBoardUseCase(id: string){
             select: {
                 id: true,
                 title: true,
+                lists: {
+                    select: {
+                        id: true,
+                        title: true,
+                        cards: {
+                            select: {
+                                id: true,
+                                title: true,
+                                position: true,
+                            }
+                        }
+                    }
+                }
             }
         });
         
