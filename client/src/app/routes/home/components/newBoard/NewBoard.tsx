@@ -7,10 +7,8 @@ const NewBoard = () => {
     const [boardName, setBoardName] = useState("")
     const [showPopup, setShowPopup] = useState(false)
     const [error, setError] = useState("")
-    const [success, setSuccess] = useState("")
 
     const handleSetName = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(event.target.value)
         setBoardName(event.target.value)
     }
 
@@ -26,7 +24,16 @@ const NewBoard = () => {
             }, 3000)
             return
         }
-        await PostData('boards', data)
+
+        try {
+            await PostData('boards', data)
+            window.location.reload()
+        } catch (error) {
+            setError("Erro ao criar quadro")
+            setTimeout(() => {
+                setError("")
+            }, 3000)
+        }
     }
 
     const handleOpenPopupNewBoard = () => {

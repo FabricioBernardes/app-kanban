@@ -2,12 +2,8 @@ import { useEffect, useState } from "react"
 import GetData from "../../services/getData"
 import Board from "./components/board/Board"
 import NewBoard from "./components/newBoard/NewBoard"
+import BoardSummary from "../../interfaces/BoardSummary"
 import './Home.scss'
-
-interface Board {
-    id: number,
-    title: string
-}
 
 const Home = () => {
     const [boards, setBoards] = useState([])
@@ -24,7 +20,7 @@ const Home = () => {
         <div className="home-wrapper">
             <div className="all-boards-container">
                 <ul>
-                    {boards.map((board: Board) => (
+                    {boards.map((board: BoardSummary) => (
                         <li key={board.id} >
                             <Board title={board.title} id={board.id} />
                         </li>

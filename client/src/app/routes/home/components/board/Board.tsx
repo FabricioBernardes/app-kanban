@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
+import BoardSummary from "../../../../interfaces/BoardSummary";
 import "./Board.scss"
 
-const Board = ({title, id}) => {
+const Board = ({title, id}: BoardSummary) => {
     return (
         <div className="board-item">
-            <Link to={`/boards/${id}`}>{title}</Link>
+            <Link to={`/board/${id}`}>{title}</Link>
         </div>
     )
 }
