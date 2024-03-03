@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react"
 import CreateCard from "../createCard/CreateCard"
 import List from '../../../interfaces/List'
-import Card from "../card/Card"
+import CardSummary from "../cardSummary/CardSummary"
 import "./List.scss"
 
 const List = ({ list, onCardCreate }: {list: List, onCardCreate: string}) => {
@@ -11,7 +10,7 @@ const List = ({ list, onCardCreate }: {list: List, onCardCreate: string}) => {
             <h2 className="list-title">{list.title}</h2>
 
             {list.cards && list.cards.map((card) => (
-                <Card key={card.id} card={card} />
+                <CardSummary key={card.id} card={card} />
             ))}
 
             <CreateCard listId={list.id} position={cardsLength + 1} onCardCreate={onCardCreate} />

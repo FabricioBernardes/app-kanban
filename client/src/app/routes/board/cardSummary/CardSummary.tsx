@@ -1,9 +1,9 @@
 import CardSummary from "../../../interfaces/CardSummary"
-import "./Card.scss"
+import "./CardSummary.scss"
 
-const Card = ({ card }: { card: CardSummary }) => {
+const CardSummary = ({ card }: { card: CardSummary }) => {
     return (
-        <div className="list-card">
+        <div className="card-summary">
             <h3 className="card-title">
                 { card.title }
             </h3>
@@ -11,4 +11,4 @@ const Card = ({ card }: { card: CardSummary }) => {
     )
 }
 
-export default Card
+export default CardSummary
