@@ -1,0 +1,24 @@
+.create-card{
+    height: fit-content;
+    width: 100%;
+
+    .input{
+        width: 100%;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: .5rem;
+        transition: var(--transition);
+
+        &:hover, &:focus{
+            background-color: var(--gray-3);
+        }
+    }
+
+    .button-default{
+        width: 100%;
+    }
+
+    .error{
+        margin-top: 2rem;
+    }
+}

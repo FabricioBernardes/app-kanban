@@ -1,0 +1,13 @@
+.board-list{
+    background-color: var(--gray-4);
+    height: fit-content;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: var(--shadow);
+    width: 30rem;
+    min-width: 30rem;
+
+    .list-title{
+        margin-bottom: 2rem;
+    }
+}

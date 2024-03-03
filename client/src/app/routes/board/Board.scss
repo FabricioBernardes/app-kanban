@@ -1,0 +1,19 @@
+.page-board{
+    height: -webkit-fill-available;
+
+    .board-title{
+        width: 100%;
+        border-radius: 0 0 .5rem .5rem;
+        padding: 1rem 2.5rem;
+        margin-bottom: 2rem;
+        background-color: var(--dark-transparency);
+    }
+
+    .lists-wrapper{
+        display: flex;
+        overflow-x: auto;
+        height: 100%;
+        gap: 2rem;
+        padding: 1rem;
+    }
+}
