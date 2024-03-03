@@ -4,9 +4,7 @@ import "./Board.scss"
 
 const Board = ({title, id}: BoardSummary) => {
     return (
-        <div className="board-item">
-            <Link to={`/board/${id}`}>{title}</Link>
-        </div>
+        <Link className="board-item" to={`/board/${id}`}>{title}</Link>
     )
 }
 

@@ -103,3 +103,23 @@ select{
 .button-white {
   @extend %button-white;
 }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-3) var(--gray-4);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ff0000;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8f8f8f;
+  border-radius: 0px;
+  border: 0px none #ffffff;
+}

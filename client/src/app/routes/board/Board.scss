@@ -1,5 +1,4 @@
 .page-board{
-    height: -webkit-fill-available;
 
     .board-title{
         width: 100%;
@@ -11,8 +10,7 @@
 
     .lists-wrapper{
         display: flex;
-        overflow-x: auto;
-        height: 100%;
+        height: calc(100vh - 17rem);
         gap: 2rem;
         padding: 1rem;
     }
