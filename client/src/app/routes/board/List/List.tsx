@@ -10,7 +10,7 @@ const List = ({ list, onCardCreate }: {list: List, onCardCreate: string}) => {
             <h2 className="list-title">{list.title}</h2>
 
             {list.cards && list.cards.map((card) => (
-                <CardSummary key={card.id} card={card} />
+                <CardSummary key={card.id} cardSummary={card} />
             ))}
 
             <CreateCard listId={list.id} position={cardsLength + 1} onCardCreate={onCardCreate} />
