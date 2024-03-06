@@ -6,6 +6,9 @@ async function GetCardUseCase(id: string) {
         const card = await prisma.card.findUnique({
             where: {
                 id: id
+            },
+            include: {
+                comments: true
             }
         })
 

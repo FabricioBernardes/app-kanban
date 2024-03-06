@@ -15,7 +15,8 @@ describe("GetCardUseCase", () => {
             id: "1",
             title: "Card 1",
             description: "Description 1",
-            listId: "1"
+            listId: "1",
+            comments: []
         };
 
         (prisma.card.findUnique as jest.Mock).mockResolvedValue(card);
