@@ -10,7 +10,6 @@ const CardSummary = ({ cardSummary }: { cardSummary: CardSummary }) => {
     const [card, setCard] = useState({} as Card);
 
     const fetchCardData = async () => {
-        console.log(card);
         const data = await GetData(`cards/${cardSummary.id}`);
         setCard(data);
     };
@@ -28,7 +27,7 @@ const CardSummary = ({ cardSummary }: { cardSummary: CardSummary }) => {
                     { cardSummary.title }
                 </h3>
             </div>
-            { openCard && <CardModal card={card} closeCard={setOpenCard} /> }
+            { openCard && <CardModal card={card} closeCard={setOpenCard} updateCard={fetchCardData} /> }
         </>
     )
 }
