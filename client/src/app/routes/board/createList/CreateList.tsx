@@ -5,7 +5,7 @@ import "./CreateList.scss"
 
 interface CreateListProps {
     boardId: string;
-    onListCreate: (listId: string) => void;
+    onListCreate: () => void;
 }
 
 const CreateList = ({ boardId, onListCreate }: CreateListProps) => {
@@ -28,9 +28,13 @@ const CreateList = ({ boardId, onListCreate }: CreateListProps) => {
             return
         }
 
-        const data = await PostData(`boards/${boardId}/lists`, dataList);
-        onListCreate(data.id);
-        setListTitle("");
+        try {
+            await PostData(`boards/${boardId}/lists`, dataList);
+            onListCreate();
+            setListTitle("");
+        } catch {
+            setError("Erro ao criar lista");
+        }
     }
 
     return (

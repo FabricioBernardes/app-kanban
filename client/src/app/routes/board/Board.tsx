@@ -8,17 +8,16 @@ import List from "./List/List"
 
 const Board = () => {
     const { boardId } = useParams();
-    const [newList, setNewList] = useState("");
-    const [newCard, setNewCard] = useState("");
     const [board, setBoard] = useState({} as Board);
 
+    const fetchBoard = async () => {
+        const data = await GetData(`boards/${boardId}`);
+        setBoard(data);
+    };
+    
     useEffect(() => {
-        const fetchBoards = async () => {
-            const data = await GetData(`boards/${boardId}`);
-            setBoard(data);
-        };
-        fetchBoards();
-    }, [newList, newCard, boardId]);
+        fetchBoard();
+    }, [boardId]);
 
     return (
         <div className="page-board">
@@ -26,10 +25,10 @@ const Board = () => {
             <div className="lists-wrapper">
 
                 {board.lists && board.lists.map((list) => (
-                    <List key={list.id} list={list} onCardCreate={setNewCard} />
+                    <List key={list.id} list={list} onCardCreate={fetchBoard} />
                 ))}
 
-                <CreateList boardId={boardId || ""} onListCreate={setNewList} />
+                <CreateList boardId={boardId || ""} onListCreate={fetchBoard} />
             </div>
         </div>
     )

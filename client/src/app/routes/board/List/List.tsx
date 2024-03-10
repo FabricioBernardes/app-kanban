@@ -3,7 +3,7 @@ import List from '../../../interfaces/List'
 import CardSummary from "../cardSummary/CardSummary"
 import "./List.scss"
 
-const List = ({ list, onCardCreate }: {list: List, onCardCreate: string}) => {
+const List = ({ list, onCardCreate }: {list: List, onCardCreate: () => void}) => {
     const cardsLength = list.cards.length;
     return (
         <div key={list.id} className="board-list">
@@ -11,7 +11,11 @@ const List = ({ list, onCardCreate }: {list: List, onCardCreate: string}) => {
 
             <div className="cards-wrapper">
                 {list.cards && list.cards.map((card) => (
-                    <CardSummary key={card.id} cardSummary={card} />
+                    <CardSummary
+                        key={card.id}
+                        cardSummary={card}
+                        onCardCreate={onCardCreate}
+                    />
                 ))}
             </div>
 
