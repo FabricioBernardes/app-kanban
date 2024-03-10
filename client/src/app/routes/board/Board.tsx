@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import GetData from "../../services/getData"
 import { useParams } from "react-router-dom"
-import "./Board.scss"
 import CreateList from "./createList/CreateList"
 import Board from "../../interfaces/Board"
 import List from "./List/List"
+import "./Board.scss"
 
 const Board = () => {
     const { boardId } = useParams();
