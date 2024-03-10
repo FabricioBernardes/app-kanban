@@ -1,3 +1,5 @@
+import Comment from './Comment';
+
 export default interface Card {
     id: string;
     title: string;

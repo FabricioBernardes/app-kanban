@@ -9,20 +9,30 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
+
     .modal{
         background-color: var(--gray-3);
         box-shadow: var(--shadow);
-        padding: 2rem;
+        padding: 1rem;
         border-radius: .5rem;
         width: 90%;
         max-width: 50rem;
         height: 90%;
+        position: relative;
 
         .modal-header{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--gray-3);
+            z-index: 1;
+            border-bottom: 1px solid var(--gray-2);
+            height: 5rem;
+
             .modal-title{
                 font-size: 3rem;
                 font-weight: 500;
@@ -32,18 +42,27 @@
                 font-size: 1.5rem;
                 color: var(--gray-1);
                 transition: var(--transition);
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+                padding: .2rem .5rem;
+
+
                 &:hover{
-                    color: var(--gray-2);
+                    background-color: var(--gray-4);
                 }
             }
         }
         .modal-body{
             margin-bottom: 1rem;
-            .description-wrapper{
-                margin-bottom: 1rem;
-                position: relative;
+            overflow-y: auto;
+            height: calc(100% - 5rem);
+            padding: 0 .2rem;
 
-                form{
+            .description-wrapper{
+                margin-bottom: 3rem;
+
+                .edit-description{
 
                     .form-textarea{
                         width: 100%;
@@ -56,6 +75,10 @@
                         &:focus{
                             border: 1px solid var(--gray-1);
                         }
+                    }
+
+                    &.-hidden{
+                        display: none;
                     }
     
                     .error{
@@ -70,14 +93,22 @@
                     border: 1px solid var(--gray-4);
                     padding: 1rem;
                     border-radius: .5rem;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
                     background-color: var(--gray-3);
 
-                    &.hidden{
+                    &.-hidden{
                         display: none;
                     }
+
+                    .button-default{
+                        margin-top: 1rem;
+                    }
+                }
+            }
+
+            .comments-wrapper{
+
+                .comments-title{
+                    margin-bottom: 2rem;
                 }
             }
         }
