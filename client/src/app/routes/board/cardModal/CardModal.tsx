@@ -40,8 +40,8 @@ const CardModal = ({ card, closeCard, updateCard }: dataModels) => {
     }
 
     return (
-        <div className="card-modal">
-            <div className="modal">
+        <div className="card-modal" onClick={() => closeCard(false)}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-header">
                     <div className="modal-title">{card.title}</div>
                     <div className="modal-close" onClick={() => closeCard(false)}>X</div>
