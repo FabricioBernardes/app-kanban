@@ -16,6 +16,7 @@ const Board = () => {
     };
     
     useEffect(() => {
+        console.log('fetching board');
         fetchBoard();
     }, [boardId]);
 
