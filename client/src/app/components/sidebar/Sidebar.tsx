@@ -1,13 +1,14 @@
-import './Sidebar.scss'
+import './Sidebar.scss';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
         <aside className="app-sidebar">
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
                 </ul>
             </nav>
         </aside>

@@ -8,23 +8,23 @@ import './App.scss'
 function App() {
 
   return (
-    <div className="app-wrapper">
+    <BrowserRouter>
+      <div className="app-wrapper">
 
-      <Header />
+        <Header />
 
-      <div className="content-wrapper">
+        <div className="content-wrapper">
 
-        <Sidebar />
+          <Sidebar />
 
-        <article className="main-content">
-          <BrowserRouter>
-            <Main_routes />
-          </BrowserRouter>
-        </article>
+          <article className="main-content">
+              <Main_routes />
+          </article>
+
+        </div>
 
       </div>
-
-    </div>
+    </BrowserRouter>
   )
 }
 

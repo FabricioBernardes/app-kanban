@@ -1,15 +1,20 @@
 import "./Header.scss"
+import { Link } from "react-router-dom"
 
 const Header = () => {
     return (
         <header className="app-header">
-            <div className="logo">Logo</div>
+            <Link to="/">
+                <div className="logo">
+                    Logo
+                </div>
+            </Link>
 
             <nav className="menu">
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
                 </ul>
             </nav>
 

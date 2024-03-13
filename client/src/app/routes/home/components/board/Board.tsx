@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { MoreVertical, ArrowLeft } from "react-feather"
+import { MoreVertical } from "react-feather"
 import DeleteData from "../../../../services/deleteData"
 import UpdateData from "../../../../services/updateData"
 import BoardSummary from "../../../../interfaces/BoardSummary";
