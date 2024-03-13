@@ -3,11 +3,94 @@
     height: 15rem;
     margin: 1rem;
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     border-radius: 0.5rem;
     border: 1px solid var(--gray-3);
     background-color: var(--gray-4);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .board-link{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .options-wrapper{
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+
+        .option-icon{
+            cursor: pointer;
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: .5rem;
+            transition: var(--transition);
+            border-radius: .3rem;
+        }
+
+        .option-icon:hover{
+            background-color: var(--light-transparency);
+        }
+
+        .board-options{
+            display: none;
+            position: absolute;
+            top: 2.5rem;
+            right: 0;
+            width: max-content;
+            background-color: var(--background-color);
+            border-radius: .3rem;
+            box-shadow: var(--shadow);
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1;
+
+            button{
+                width: 100%;
+                padding: 1rem;
+                border-radius: .5rem;
+                transition: var(--transition);
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                &:hover{
+                    background-color: var(--light-transparency);
+                }
+            
+            }
+        }
+
+        .board-options.-show{
+            display: flex;
+        }
+    }
+    
+    .edit-boardname{
+        width: 100%;
+
+        .input{
+            width: 100%;
+            border: none;
+            border-radius: .5rem;
+            transition: var(--transition);
+            background-color: var(--gray-3);
+            margin-bottom: 1rem;
+    
+            &:hover, &:focus{
+                border-bottom: 1px solid var(--gray-2);
+            }
+        }
+
+        .button-default{
+            width: 100%;
+        }
+    }
 }

@@ -8,21 +8,23 @@ import './Home.scss'
 const Home = () => {
     const [boards, setBoards] = useState([])
 
+    const fetchBoards = async () => {
+        const data = await GetData('boards')
+        setBoards(data)
+    }
+
     useEffect(() => {
-        const fetchBoards = async () => {
-            const data = await GetData('boards')
-            setBoards(data)
-        }
         fetchBoards()
     }, [])
 
     return (
         <div className="home-wrapper">
             <div className="all-boards-container">
+                <h1 className="title">Seus quadros</h1>
                 <ul>
-                    {boards.map((board: BoardSummary) => (
+                    {boards.length && boards.map((board: BoardSummary) => (
                         <li key={board.id} >
-                            <Board title={board.title} id={board.id} />
+                            <Board board={board} fetchBoards={fetchBoards} />
                         </li>
                     ))}
                     <NewBoard key="new-board" />
