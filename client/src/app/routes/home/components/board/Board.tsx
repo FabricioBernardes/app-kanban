@@ -60,7 +60,9 @@ const Board = ({ board, fetchBoards }: { board: BoardSummary, fetchBoards: () =>
                 </form>
             ) : (
                 <Link className="board-link" to={`/board/${board.id}`}>
-                    {board.title}
+                    <span>
+                        {board.title}
+                    </span>
                 </Link>
             )}
 
